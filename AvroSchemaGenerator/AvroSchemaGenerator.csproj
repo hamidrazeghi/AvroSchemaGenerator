@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+
+	  <PackageId>AvroSchema.Generator</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Hamid Razeghi</Authors>
+	  <Description>A lightweight C# library to generate Apache Avro Schemas and GenericRecords from Plain Old CLR Objects (POCOs) using reflection.</Description>
+	  <Copyright>Copyright (c) 2024 Hamid Razeghi</Copyright>
+	  <PackageTags>avro;schema;generator;reflection;serialization;poco;nuget</PackageTags>
+	  <RepositoryUrl>https://github.com/hamidrazeghi/AvroSchemaGenerator</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/hamidrazeghi/AvroSchemaGenerator</PackageProjectUrl>
+	  <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+
+  </PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+    <PackageReference Include="Apache.Avro" Version="1.12.0" />
+  </ItemGroup>
+
+</Project>

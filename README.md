@@ -1,7 +1,35 @@
-Avro Schema GeneratorA lightweight C# library for generating Apache Avro schemas (in JSON format) and converting POCO instances to Avro's GenericRecord using reflection.This library is useful for integrating C# models with Apache Kafka, Schema Registry, or other systems that rely on the Avro data format.FeaturesSchema Generation: Automatically creates a valid Avro Record Schema JSON string from any C# class.Type Support: Handles primitives, enums, DateTime (as timestamp-millis), nullable types, and nested complex objects.POCO Conversion: Easily convert your instantiated C# objects into Avro.Generic.GenericRecord objects, correctly handling type conversions like DateTime to long timestamps.InstallationThe library is available on NuGet.Install-Package AvroSchema.Generator
+# Avro Schema Generator
+
+A lightweight C# library for generating Apache Avro schemas (in JSON format) and converting POCO instances to Avro's `GenericRecord` using reflection.
+
+This library is useful for integrating C# models with Apache Kafka, Schema Registry, or other systems that rely on the Avro data format.
+
+## Features
+
+- **Schema Generation:** Automatically creates a valid Avro Record Schema JSON string from any C# class.
+    
+- **Type Support:** Handles primitives, enums, `DateTime` (as `timestamp-millis`), nullable types, and nested complex objects.
+    
+- **POCO Conversion:** Easily convert your instantiated C# objects into `Avro.Generic.GenericRecord` objects, correctly handling type conversions like `DateTime` to long timestamps.
+    
+
+## Installation
+
+The library is available on NuGet.
+
+```
+Install-Package AvroSchema.Generator
 # Or using dotnet CLI
 dotnet add package AvroSchema.Generator
-Usage1. Generating a Schemausing AvroSchemaGeneration;
+
+```
+
+## Usage
+
+### 1. Generating a Schema
+
+```
+using AvroSchemaGeneration;
 using System;
 
 // Define your model
@@ -33,7 +61,15 @@ Console.WriteLine(avroSchemaJson);
     ] 
 }
 */
-2. Converting POCO to GenericRecordTo use the conversion utility, you need to parse the generated schema using the Apache.Avro library first.using Avro.Schema;
+
+```
+
+### 2. Converting POCO to GenericRecord
+
+To use the conversion utility, you need to parse the generated schema using the `Apache.Avro` library first.
+
+```
+using Avro.Schema;
 using Avro.Generic;
 using AvroSchemaGeneration;
 
@@ -54,3 +90,5 @@ var recordSchema = Schema.Parse(schemaJson) as RecordSchema;
 GenericRecord avroRecord = AvroSchemaGenerator.ConvertToGenericRecord(customerPoco, recordSchema);
 
 // avroRecord is now ready for serialization with an Avro writer
+
+```
